@@ -7,21 +7,21 @@ export function Footer() {
             <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
                 <div>
                     <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 text-transparent bg-clip-text">
-                        Gas Detection ML
+                        PLANT DISEASE DETECTION
                     </h3>
                     <p className="text-slate-500 text-sm mt-2">
-                        Innovating safety with machine learning.
+                        Innovating agriculture with machine learning.
                     </p>
                 </div>
 
                 <div className="flex gap-6">
-                    <a href="https://github.com/kushagragupta04/Multi-Class-Multimodal-Gas-Detection-using-ML" className="text-slate-400 hover:text-white transition-colors">
+                    <a href="https://github.com/Arjun00356/Plant-Disease-Detection" className="text-slate-400 hover:text-white transition-colors">
                         <Github size={20} />
                     </a>
-                    <a href="https://www.linkedin.com/in/kushagragupta08/" className="text-slate-400 hover:text-white transition-colors">
+                    {/* <a href="https://www.linkedin.com/in/kushagragupta08/" className="text-slate-400 hover:text-white transition-colors">
                         <Linkedin size={20} />
-                    </a>
-                    <a href="mailto:kushagra2808gupta@gmail.com" className="text-slate-400 hover:text-white transition-colors">
+                    </a> */}
+                    <a href="mailto:arjunmishra@gmail.com" className="text-slate-400 hover:text-white transition-colors">
                         <Mail size={20} />
                     </a>
                 </div>
