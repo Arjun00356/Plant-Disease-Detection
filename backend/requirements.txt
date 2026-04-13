@@ -1,0 +1,16 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9
+Pillow>=10.0.0
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.24.0
+python-dotenv==1.0.1
+
+# Free VLM providers
+google-genai>=1.0.0          # Gemini 1.5 Flash (free tier) — new SDK
+aiohttp>=3.9.0               # needed for Ollama HTTP calls
+
+# Paid VLM providers (optional)
+anthropic>=0.34.0
+openai>=1.40.0

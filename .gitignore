@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+.venv/
+venv/
+
+# Model weights & checkpoints (too large for GitHub)
+*.pth
+*.pt
+checkpoints/
+
+# Training artefacts
+training_log.txt
+backend_log.txt
+dataset/
+nohup.out
+
+# Node
+node_modules/
+dist/
+.DS_Store
+
+# IDE
+.vscode/
+.idea/

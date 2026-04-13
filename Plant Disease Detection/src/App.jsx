@@ -6,6 +6,7 @@ import { Dataset } from './components/Dataset';
 import { Workflow } from './components/Workflow';
 import { Models } from './components/Models';
 import { Results } from './components/Results';
+import { DiagnosisEngine } from './components/DiagnosisEngine';
 import { Impact } from './components/Impact';
 import { Credits } from './components/Credits';
 import { Footer } from './components/Footer';
@@ -23,11 +24,14 @@ function App() {
             <Models />
             <Results />
 
+            {/* Live dual CNN + VLM diagnosis */}
+            <DiagnosisEngine />
+
             <section className="py-20 text-center px-6">
                 <div className="max-w-3xl mx-auto p-10 rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800">
                     <h2 className="text-2xl font-bold mb-4">Conclusion</h2>
                     <p className="text-slate-400 mb-8">
-                        This project demonstrates that deep learning models, particularly our Custom CNN, can achieve high accuracy in identifying plant diseases from leaf images. This technology empowers farmers with real-time diagnostic tools, promoting healthier crops and sustainable agricultural practices.
+                        This project demonstrates that deep learning models, particularly our Custom CNN, can achieve high accuracy in identifying plant diseases from leaf images. By combining classical CNN predictions with modern Vision-Language Model reasoning, we achieve a robust, explainable diagnosis system that empowers farmers with real-time diagnostic tools and promotes healthier crops and sustainable agricultural practices.
                     </p>
                 </div>
             </section>
