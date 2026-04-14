@@ -18,7 +18,7 @@ import os
 from dotenv import load_dotenv
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from PIL import Image
 
@@ -72,6 +72,10 @@ consensus_engine = ConsensusEngine()
 # ──────────────────────────────────────────────────────────────────────────
 @app.get("/")
 def root():
+    # In production the React build is at ../frontend/dist/index.html
+    index = os.path.join(_FRONTEND_DIST, "index.html")
+    if os.path.isfile(index):
+        return FileResponse(index)
     return {"message": "Plant Disease Diagnosis API is running.", "version": "1.0.0"}
 
 
