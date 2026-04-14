@@ -19,6 +19,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 from PIL import Image
 
 load_dotenv()
@@ -145,3 +146,12 @@ async def diagnose(file: UploadFile = File(...)):
     return JSONResponse(
         content={"cnn": cnn_result, "vlm": vlm_result, "consensus": consensus}
     )
+
+
+# ──────────────────────────────────────────────────────────────────────────
+# Serve React frontend (production / HF Spaces)
+# Must be mounted LAST so API routes above take priority.
+# ──────────────────────────────────────────────────────────────────────────
+_FRONTEND_DIST = os.path.join(os.path.dirname(__file__), "..", "frontend", "dist")
+if os.path.isdir(_FRONTEND_DIST):
+    app.mount("/", StaticFiles(directory=_FRONTEND_DIST, html=True), name="frontend")
