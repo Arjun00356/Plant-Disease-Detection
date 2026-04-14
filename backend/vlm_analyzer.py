@@ -77,7 +77,15 @@ class VLMAnalyzer:
 
     def __init__(self, provider: str = "gemini"):
         self.provider = provider.lower()
-        self._client = self._build_client()
+        self._client = None
+        self._init_error: str | None = None
+        try:
+            self._client = self._build_client()
+        except Exception as exc:
+            # Store the error but don't crash — the app still starts.
+            # VLM calls will return a graceful error response instead.
+            self._init_error = str(exc)
+            print(f"[WARN] VLMAnalyzer init failed ({self.provider}): {exc}")
 
     # ------------------------------------------------------------------
     def _build_client(self):
@@ -116,6 +124,8 @@ class VLMAnalyzer:
 
     # ------------------------------------------------------------------
     async def analyze(self, image_b64: str, media_type: str = "image/jpeg") -> Dict:
+        if self._init_error:
+            raise RuntimeError(self._init_error)
         dispatch = {
             "gemini":    self._gemini,
             "ollama":    self._ollama,
