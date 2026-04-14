@@ -144,7 +144,7 @@ class VLMAnalyzer:
         from google.genai import types
 
         client = genai.Client(api_key=os.getenv("GEMINI_API_KEY", ""))
-        model_name = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
+        model_name = os.getenv("GEMINI_MODEL", "gemini-2.5-flash-lite")
 
         image_part = types.Part.from_bytes(
             data=base64.b64decode(image_b64),
